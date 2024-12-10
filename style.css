@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+::selection{ /*Surlignage*/
+  color: #000;
+  background: #fff;
+}
+
+
+nav{
+background-color: #120402;
+width: 100%;
+padding: 10px 0;
+z-index: 20; /*Tous les elements <zindex20 seront en dessous de la bare de nav*/
+position: fixed; /*restera tjrs en haut de la page*/
+
+}
+.logo-image {
+    height: 60px; /* Ajustez la hauteur selon vos besoins */
+    width: auto; /* Largeur automatique pour maintenir le rapport d'aspect */
+    margin-right: 10px; /* Espace à droite du logo pour le séparer du texte */
+    vertical-align: middle;
+    border: 1.5px solid white;
+    border-radius: 10px;
+
+}
+.menu {
+    max-width: 1250px; 
+    margin: auto; /* horizontalement à l'intérieur de son conteneur <nav>*/
+    display: flex; /*conteneur flex pour les enfants logo et autres dans menu */
+    align-items: center; /* Aligne les éléments au centre de l'axe vertical */
+    justify-content: space-between;/* Distribue les éléments sur l'axe horizontal */
+    padding: 0 20px;
+}
+
+.menu .logo a {
+    text-decoration: none;
+    font-size: 35px;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.menu ul {
+    display:flex; 
+    list-style: none;
+}
+.menu ul li{
+    
+    margin-left: 20px; /*eviter la collision cote à cote de mes elements*/
+}
+.menu ul li:first-child{
+    margin-left: 0px;
+}
+@keyframes slideIn{
+
+    0%{
+        transform: translate(-100%);
+        opacity: 0;
+    }
+    25%{
+       opacity: 0.25;
+    }
+    50%{
+        opacity: 0.50;
+    }
+    75%{
+        opacity: 0.75;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.startup-text{
+    display: inline;
+    animation: slideIn 1s ease forwards ;
+    color: #fff;
+}
+.menu ul li a{ /*style d'origine*/
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500 ;
+    padding: 8px 15px;
+    border-radius:5px ;
+    transition: all 0.8s ease;/*animer en douceur les changements*/
+}
+.menu ul li a:hover { /*pseudo classe*/
+    background: #fff;
+    color: rgb(2, 5, 28);
+}
+.img{
+    background: url(photo1.png) no-repeat;
+    height: 100vh;/*par defaut div est un bloc de 0px d'hauteur, il faut ajouter un ptit text pour eviter la disparition*/
+    width: 100%;
+    background-position:center;
+    background-size: cover;
+    position: relative;/*responsive*/
+    
+}
+.img::before{ /*i want an overlay effect over my page*/
+    content: '';/*pas de texte mais il dera present*/
+    position: absolute;/*sera positionner par rapport a .img*/
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);/*opacité*/
+
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0; 
+    }
+    to {
+      opacity: initial; /* Finir avec une opacité de 1 */
+     
+    }
+  }
+ 
+.centre{
+    position: absolute;/*par rapport a body*/
+    top: 52%;
+    left: 50%;/*par defaut le coin gaughe sup et l'origine de lapage se confondent*/
+    width: 100%;
+    transform: translate(-50%, -50%);
+    padding:  0 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-in forwards;
+ 
+}
+
+.centre .title{
+    color: white;
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.centre .btns{
+    margin-top: 20px;/*résoudre le probleme : très proche du titre*/
+}
+
+.centre .btns button{
+    height: 60px;/*hauteur de chaque boutton*/
+    width: 200px;
+    font-size: 18px;
+    font-weight: 500 ;
+    padding: 8px 15px;
+    border-radius:5px ;
+    margin: 0 10px;
+    border: 0.5px solid white ;
+    cursor: pointer;
+    outline: none; /* Enlève le contour par défaut */
+    transition: all 0.8s ease;
+}
+
+.centre .btns button:first-child{
+    color: #fff;
+    background: none;
+  }
+.centre .btns button:first-child:hover{ /*effet survol sur cette boutton*/
+    background: white;
+    color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+.centre .btns button:last-child{/*2ème boutton*/
+    color: #fff;
+    background: none;
+  }
+.centre .btns button:last-child:hover{
+    background: white;
+    color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
